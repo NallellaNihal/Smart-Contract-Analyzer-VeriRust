@@ -1,0 +1,6 @@
+DEBUG: Generating standalone harness for function 'clamp_i64'
+DEBUG: Generating standalone harness for function 'choose_route'
+DEBUG: Generating standalone harness for function 'reconcile_window'
+DEBUG: Generating standalone harness for function 'transition'
+DEBUG: Generating standalone harness for function 'labyrinth_score'
+58

@@ -1,0 +1,21 @@
+═══════════════════════════════════════════════════════════════
+CARGO LLVM-COV COVERAGE REPORT - labyrinth_contract
+═══════════════════════════════════════════════════════════════
+Contract: labyrinth_contract
+Analysis Date: Thu Jun  4 10:26:01 AM IST 2026
+Project Folder: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust
+Analysis Type: Branch/Condition Coverage
+Status: FAILED/PARTIAL
+Exit Code: 101
+Execution Time: .041742879 seconds
+
+Generated Artifacts:
+  • index.html - Interactive HTML coverage report
+  • llvm_cov_output.log - Full cargo llvm-cov output
+  • LLVM_COVERAGE_SUMMARY.txt - This summary
+
+Coverage Report Details:
+  └─ Report Type: Branch and Condition Coverage
+  └─ Format: HTML (standalone)
+  └─ Open in browser: file:///home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/results/labyrinth_contract/coverage_report/index.html
+

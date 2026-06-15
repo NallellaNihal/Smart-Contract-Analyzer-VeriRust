@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: token_vesting_v3
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/token_vesting_v3.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Sun Jun 14 15:33:51 IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  33 (50%)
+  ✓ REACHABLE_FALSE: 33 (50%)
+  ✓ Total Asserts:   66
+
+Reachability Coverage:
+  Coverage Basis:    ESTIMATED (Kani did not produce reachability results)
+  ✓ TRUE paths:      33 / 33
+  ✓ FALSE paths:     16 / 33
+  ✓ Total Reachable: 49 / 66
+  → Condition Coverage: 74%
+
+Execution Time: .100503072 seconds
+
+Generated Files:
+  • token_vesting_v3_original.txt - Original source (backup)
+  • token_vesting_v3_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

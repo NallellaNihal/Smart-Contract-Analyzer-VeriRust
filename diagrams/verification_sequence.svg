@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="980" viewBox="0 0 1500 980">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#263142"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #586275; }
+      .actor { fill: #eef6ff; stroke: #2467a7; stroke-width: 2; rx: 8; }
+      .actorText { font: 700 17px Arial, sans-serif; fill: #172033; }
+      .life { stroke: #b8c2d2; stroke-width: 2; stroke-dasharray: 7 7; }
+      .msg { stroke: #263142; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .return { stroke: #5d6b7f; stroke-width: 2; fill: none; stroke-dasharray: 7 5; marker-end: url(#arrow); }
+      .label { font: 500 15px Arial, sans-serif; fill: #172033; }
+      .note { fill: #fff8ea; stroke: #a56a11; stroke-width: 1.8; rx: 8; }
+      .noteText { font: 500 14px Arial, sans-serif; fill: #3f2b08; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="980" fill="#ffffff"/>
+  <text x="750" y="55" text-anchor="middle" class="title">VeriRust Verification Sequence</text>
+  <text x="750" y="87" text-anchor="middle" class="subtitle">Execution flow after running ./verify_rust.sh filename.rs</text>
+
+  <rect x="75" y="125" width="150" height="54" class="actor"/>
+  <text x="150" y="158" text-anchor="middle" class="actorText">User</text>
+
+  <rect x="300" y="125" width="190" height="54" class="actor"/>
+  <text x="395" y="158" text-anchor="middle" class="actorText">verify_rust.sh</text>
+
+  <rect x="575" y="125" width="190" height="54" class="actor"/>
+  <text x="670" y="158" text-anchor="middle" class="actorText">rust_injector.py</text>
+
+  <rect x="860" y="125" width="150" height="54" class="actor"/>
+  <text x="935" y="158" text-anchor="middle" class="actorText">Kani</text>
+
+  <rect x="1085" y="125" width="190" height="54" class="actor"/>
+  <text x="1180" y="158" text-anchor="middle" class="actorText">cargo llvm-cov</text>
+
+  <rect x="1340" y="125" width="130" height="54" class="actor"/>
+  <text x="1405" y="158" text-anchor="middle" class="actorText">Results</text>
+
+  <line x1="150" y1="179" x2="150" y2="925" class="life"/>
+  <line x1="395" y1="179" x2="395" y2="925" class="life"/>
+  <line x1="670" y1="179" x2="670" y2="925" class="life"/>
+  <line x1="935" y1="179" x2="935" y2="925" class="life"/>
+  <line x1="1180" y1="179" x2="1180" y2="925" class="life"/>
+  <line x1="1405" y1="179" x2="1405" y2="925" class="life"/>
+
+  <path d="M150 230 H395" class="msg"/>
+  <text x="210" y="220" class="label">./verify_rust.sh filename.rs</text>
+
+  <path d="M395 285 H1405" class="msg"/>
+  <text x="510" y="275" class="label">Create results/&lt;input&gt;/&lt;contract&gt;/</text>
+
+  <path d="M395 340 C520 340 520 340 395 340" class="msg"/>
+  <text x="430" y="329" class="label">Detect input, delete old temp artifacts, backup source</text>
+
+  <path d="M395 405 H670" class="msg"/>
+  <text x="430" y="395" class="label">Run injector on Rust file</text>
+
+  <path d="M670 460 H395" class="return"/>
+  <text x="425" y="450" class="label">Return instrumented source with reachability assertions</text>
+
+  <path d="M395 515 H1405" class="msg"/>
+  <text x="505" y="505" class="label">Save original file, modified file, and injection.log</text>
+
+  <path d="M395 580 H935" class="msg"/>
+  <text x="520" y="570" class="label">Run Kani formal verification</text>
+
+  <path d="M935 635 H1405" class="msg"/>
+  <text x="1010" y="625" class="label">Write kani_output.txt</text>
+
+  <path d="M395 690 C520 690 520 690 395 690" class="msg"/>
+  <text x="430" y="679" class="label">Count REACHABLE_TRUE/FALSE and calculate coverage</text>
+
+  <path d="M395 745 H1405" class="msg"/>
+  <text x="550" y="735" class="label">Write SUMMARY.txt</text>
+
+  <path d="M395 800 H1180" class="msg"/>
+  <text x="530" y="790" class="label">Run cargo llvm-cov branch coverage</text>
+
+  <path d="M1180 855 H1405" class="msg"/>
+  <text x="1225" y="845" class="label">Write HTML report and LLVM summary</text>
+
+  <path d="M395 910 C520 910 520 910 395 910" class="msg"/>
+  <text x="430" y="899" class="label">Restore source; delete *.out, *.json, Kani metadata, LLVM profile files, .llvm-cov/</text>
+
+  <rect x="55" y="940" width="1390" height="28" class="note"/>
+  <text x="750" y="959" text-anchor="middle" class="noteText">Note: In the current captured run, Kani and Cargo were not installed, so verification and LLVM coverage outputs are failed/partial or estimated.</text>
+</svg>

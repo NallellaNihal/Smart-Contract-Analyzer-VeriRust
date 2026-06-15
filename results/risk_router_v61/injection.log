@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'risk_router_inline_probe'
+DEBUG: Generating standalone harness for function 'risk_router_clamp'
+DEBUG: Generating standalone harness for function 'risk_router_mode'
+DEBUG: Generating standalone harness for function 'risk_router_action'
+DEBUG: Generating standalone harness for function 'risk_router_score'
+DEBUG: Generating standalone harness for function 'risk_router_walk'
+DEBUG: Generating standalone harness for function 'risk_router_transition'
+66

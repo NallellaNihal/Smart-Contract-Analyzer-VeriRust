@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: bridge_validator_v26
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/bridge_validator_v26.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Sun Jun 14 15:33:13 IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  35 (50%)
+  ✓ REACHABLE_FALSE: 35 (50%)
+  ✓ Total Asserts:   70
+
+Reachability Coverage:
+  Coverage Basis:    ESTIMATED (Kani did not produce reachability results)
+  ✓ TRUE paths:      35 / 35
+  ✓ FALSE paths:     0 / 35
+  ✓ Total Reachable: 35 / 70
+  → Condition Coverage: 50%
+
+Execution Time: .098943702 seconds
+
+Generated Files:
+  • bridge_validator_v26_original.txt - Original source (backup)
+  • bridge_validator_v26_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

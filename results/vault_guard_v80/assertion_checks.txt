@@ -1,0 +1,5 @@
+═══════════════════════════════════════════════════════════════
+FAILED ASSERTION CHECKS: vault_guard_v80
+═══════════════════════════════════════════════════════════════
+
+No failed REACHABLE_TRUE or REACHABLE_FALSE assertion checks found.

@@ -1,0 +1,74 @@
+Kani Rust Verifier 0.67.0 (standalone)
+warning: unexpected `cfg` condition name: `test`
+   --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v55.rs:281:7
+    |
+281 | #[cfg(test)]
+    |       ^^^^
+    |
+    = help: expected names are: `kani` and 31 more
+    = help: to expect this configuration use `--check-cfg=cfg(test)`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+
+error[E0308]: mismatched types
+  --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v55.rs:45:24
+   |
+45 |     if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 8) }
+   |     -------------------^^^^^^^^^^^^^^^^^^^^^^^-------------------------------------------
+   |     |                  |
+   |     |                  expected `()`, found `u32`
+   |     expected this to be `()`
+   |
+help: consider using a semicolon here
+   |
+45 |     if value > guard { value.saturating_add(5); } else { guard.saturating_sub(value % 8) }
+   |                                               +
+help: consider using a semicolon here
+   |
+45 |     if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 8) };
+   |                                                                                          +
+help: you might have meant to return this value
+   |
+45 |     if value > guard { return value.saturating_add(5); } else { guard.saturating_sub(value % 8) }
+   |                        ++++++                        +
+
+error[E0308]: mismatched types
+  --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v55.rs:45:57
+   |
+45 |     if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 8) }
+   |     ----------------------------------------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--
+   |     |                                                   |
+   |     |                                                   expected `()`, found `u32`
+   |     expected this to be `()`
+   |
+help: consider using a semicolon here
+   |
+45 |     if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 8); }
+   |                                                                                        +
+help: consider using a semicolon here
+   |
+45 |     if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 8) };
+   |                                                                                          +
+help: you might have meant to return this value
+   |
+45 |     if value > guard { value.saturating_add(5) } else { return guard.saturating_sub(value % 8); }
+   |                                                         ++++++                                +
+
+error[E0308]: mismatched types
+  --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v55.rs:44:64
+   |
+44 | pub fn governance_vote_inline_probe(value: u32, guard: u32) -> u32 {
+   |        ----------------------------                            ^^^ expected `u32`, found `()`
+   |        |
+   |        implicitly returns `()` as its body has no tail or `return` expression
+   |
+note: consider returning one of these bindings
+  --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v55.rs:44:37
+   |
+44 | pub fn governance_vote_inline_probe(value: u32, guard: u32) -> u32 {
+   |                                     ^^^^^       ^^^^^
+
+error: aborting due to 3 previous errors; 1 warning emitted
+
+For more information about this error, try `rustc --explain E0308`.
+error: /home/nihal/.kani/kani-0.67.0/bin/kani-compiler exited with status exit status: 101

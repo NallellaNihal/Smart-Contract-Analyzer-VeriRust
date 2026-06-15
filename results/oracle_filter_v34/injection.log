@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'oracle_filter_inline_probe'
+DEBUG: Generating standalone harness for function 'oracle_filter_clamp'
+DEBUG: Generating standalone harness for function 'oracle_filter_mode'
+DEBUG: Generating standalone harness for function 'oracle_filter_action'
+DEBUG: Generating standalone harness for function 'oracle_filter_score'
+DEBUG: Generating standalone harness for function 'oracle_filter_walk'
+DEBUG: Generating standalone harness for function 'oracle_filter_transition'
+66

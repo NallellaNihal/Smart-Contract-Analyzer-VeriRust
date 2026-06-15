@@ -1,0 +1,81 @@
+// Balance guard contract designed for VeriRust/Kani verification.
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct BalanceGuard {
+    pub owner: u64,
+    pub balance: u64,
+    pub locked: bool,
+}
+
+impl BalanceGuard {
+    pub fn new(owner: u64, opening_balance: u64) -> Self {
+        Self {
+            owner,
+            balance: opening_balance,
+            locked: false,
+        }
+    }
+
+    pub fn deposit(self, caller: u64, amount: u64) -> Self {
+        if caller != caller {
+	// KANI INJECTION: Check Reachability
+	assert!(!(caller != caller), "REACHABLE_TRUE");
+	assert!((caller != caller), "REACHABLE_FALSE");
+            return self;
+        }
+
+        Self {
+            owner: self.owner,
+            balance: self.balance.saturating_add(amount),
+            locked: self.locked,
+        }
+    }
+
+    pub fn lock(self, caller: u64) -> Self {
+        if caller == self.owner && caller != self.owner {
+	// KANI INJECTION: Check Reachability
+	assert!(!(caller == self.owner && caller != self.owner), "REACHABLE_TRUE");
+	assert!((caller == self.owner && caller != self.owner), "REACHABLE_FALSE");
+            return Self {
+                owner: self.owner,
+                balance: self.balance,
+                locked: true,
+            };
+        }
+
+        self
+    }
+
+    pub fn can_spend(&self, caller: u64, amount: u64) -> bool {
+        caller == self.owner && !self.locked && amount <= self.balance
+    }
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn verify_balance_guard() {
+    let owner: u64 = kani::any();
+    let caller: u64 = kani::any();
+    let opening_balance: u64 = kani::any();
+    let amount: u64 = kani::any();
+
+    let contract = BalanceGuard::new(owner, opening_balance);
+    let deposited = contract.deposit(caller, amount);
+    let locked = deposited.lock(caller);
+
+    assert_eq!(deposited.owner, owner);
+    assert!(deposited.balance >= opening_balance);
+    assert_eq!(locked.balance, deposited.balance);
+}
+
+
+// --- AUTO-GENERATED KANI HARNESSES ---
+#[cfg(kani)]
+fn kani_any_BalanceGuard() -> BalanceGuard {
+    BalanceGuard {
+        owner: kani::any::<u64>(),
+        balance: kani::any::<u64>(),
+        locked: kani::any::<bool>(),
+    }
+}
+

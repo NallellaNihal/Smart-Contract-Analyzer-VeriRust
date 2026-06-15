@@ -1,0 +1,5 @@
+═══════════════════════════════════════════════════════════════
+FAILED ASSERTION CHECKS: oracle_filter_v104
+═══════════════════════════════════════════════════════════════
+
+No failed REACHABLE_TRUE or REACHABLE_FALSE assertion checks found.

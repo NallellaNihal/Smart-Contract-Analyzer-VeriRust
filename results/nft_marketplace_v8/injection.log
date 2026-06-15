@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'nft_marketplace_inline_probe'
+DEBUG: Generating standalone harness for function 'nft_marketplace_clamp'
+DEBUG: Generating standalone harness for function 'nft_marketplace_mode'
+DEBUG: Generating standalone harness for function 'nft_marketplace_action'
+DEBUG: Generating standalone harness for function 'nft_marketplace_score'
+DEBUG: Generating standalone harness for function 'nft_marketplace_walk'
+DEBUG: Generating standalone harness for function 'nft_marketplace_transition'
+70

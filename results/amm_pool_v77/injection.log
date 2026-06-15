@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'amm_pool_inline_probe'
+DEBUG: Generating standalone harness for function 'amm_pool_clamp'
+DEBUG: Generating standalone harness for function 'amm_pool_mode'
+DEBUG: Generating standalone harness for function 'amm_pool_action'
+DEBUG: Generating standalone harness for function 'amm_pool_score'
+DEBUG: Generating standalone harness for function 'amm_pool_walk'
+DEBUG: Generating standalone harness for function 'amm_pool_transition'
+62

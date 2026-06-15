@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'governance_vote_inline_probe'
+DEBUG: Generating standalone harness for function 'governance_vote_clamp'
+DEBUG: Generating standalone harness for function 'governance_vote_mode'
+DEBUG: Generating standalone harness for function 'governance_vote_action'
+DEBUG: Generating standalone harness for function 'governance_vote_score'
+DEBUG: Generating standalone harness for function 'governance_vote_walk'
+DEBUG: Generating standalone harness for function 'governance_vote_transition'
+58

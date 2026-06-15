@@ -1,0 +1,2346 @@
+Kani Rust Verifier 0.67.0 (standalone)
+warning: unexpected `cfg` condition name: `test`
+   --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs:259:7
+    |
+259 | #[cfg(test)]
+    |       ^^^^
+    |
+    = help: expected names are: `kani` and 31 more
+    = help: to expect this configuration use `--check-cfg=cfg(test)`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: function `kani_any_Route` should have a snake case name
+   --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs:281:4
+    |
+281 | fn kani_any_Route() -> Route {
+    |    ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `kani_any_route`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: function `kani_any_LabyrinthState` should have a snake case name
+   --> /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs:292:4
+    |
+292 | fn kani_any_LabyrinthState() -> LabyrinthState {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `kani_any_labyrinth_state`
+
+warning: 3 warnings emitted
+
+Checking harness kani_harness_labyrinth_score...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit x86_64 linux
+Reading GOTO program from file /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract__RNvCs4wdyTFz6j0q_18labyrinth_contract28kani_harness_labyrinth_score.out
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+Runtime Symex: 0.0689728s
+size of program expression: 1078 steps
+slicing removed 657 assignments
+Generated 68 VCC(s), 55 remaining after simplification
+Runtime Postprocess Equation: 0.00262004s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0126635s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 9.1584e-05s
+Solving with CaDiCaL 2.0.0
+2219 variables, 6524 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00129467s
+Runtime decision procedure: 0.01484s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2220 variables, 6525 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000647629s
+Runtime decision procedure: 0.000836684s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2221 variables, 6526 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00265841s
+Runtime decision procedure: 0.00296419s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2222 variables, 6527 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000610124s
+Runtime decision procedure: 0.000825266s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2223 variables, 6528 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0010677s
+Runtime decision procedure: 0.00124717s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2224 variables, 6529 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00058134s
+Runtime decision procedure: 0.000774154s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2225 variables, 6530 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00305496s
+Runtime decision procedure: 0.00629049s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2226 variables, 6531 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00236709s
+Runtime decision procedure: 0.00282523s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2227 variables, 6532 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000816651s
+Runtime decision procedure: 0.00108372s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+2228 variables, 6533 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.000250045s
+Runtime decision procedure: 0.000414029s
+
+RESULTS:
+Check 1: labyrinth_score.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:222:2 in function labyrinth_score
+
+Check 2: labyrinth_score.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:223:2 in function labyrinth_score
+
+Check 3: labyrinth_score.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "index out of bounds: the length is less than or equal to the given index"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 4: labyrinth_score.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:224:49 in function labyrinth_score
+
+Check 5: labyrinth_score.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:225:9 in function labyrinth_score
+
+Check 6: labyrinth_score.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:233:2 in function labyrinth_score
+
+Check 7: labyrinth_score.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:234:2 in function labyrinth_score
+
+Check 8: labyrinth_score.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:239:2 in function labyrinth_score
+
+Check 9: labyrinth_score.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:240:2 in function labyrinth_score
+
+Check 10: labyrinth_score.assertion.10
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:245:2 in function labyrinth_score
+
+Check 11: labyrinth_score.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:246:2 in function labyrinth_score
+
+Check 12: labyrinth_score.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:251:2 in function labyrinth_score
+
+Check 13: labyrinth_score.assertion.13
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:252:2 in function labyrinth_score
+
+Check 14: labyrinth_score.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:253:40 in function labyrinth_score
+
+Check 15: reconcile_window.assertion.1
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:121:2 in function reconcile_window
+
+Check 16: reconcile_window.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:122:2 in function reconcile_window
+
+Check 17: reconcile_window.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "index out of bounds: the length is less than or equal to the given index"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 18: reconcile_window.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:127:2 in function reconcile_window
+
+Check 19: reconcile_window.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:128:2 in function reconcile_window
+
+Check 20: reconcile_window.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:129:38 in function reconcile_window
+
+Check 21: reconcile_window.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:131:22 in function reconcile_window
+
+Check 22: reconcile_window.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:133:22 in function reconcile_window
+
+Check 23: reconcile_window.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:133:2 in function reconcile_window
+
+Check 24: reconcile_window.assertion.10
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:134:21 in function reconcile_window
+
+Check 25: reconcile_window.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:134:2 in function reconcile_window
+
+Check 26: reconcile_window.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:135:38 in function reconcile_window
+
+Check 27: reconcile_window.assertion.13
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:139:2 in function reconcile_window
+
+Check 28: reconcile_window.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:140:2 in function reconcile_window
+
+Check 29: reconcile_window.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:143:12 in function reconcile_window
+
+Check 30: reconcile_window.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:143:12 in function reconcile_window
+
+Check 31: reconcile_window.assertion.16
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:145:12 in function reconcile_window
+
+Check 32: reconcile_window.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:145:12 in function reconcile_window
+
+Check 33: reconcile_window.assertion.17
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:145:2 in function reconcile_window
+
+Check 34: reconcile_window.assertion.18
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:146:11 in function reconcile_window
+
+Check 35: reconcile_window.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:146:11 in function reconcile_window
+
+Check 36: reconcile_window.assertion.19
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:146:2 in function reconcile_window
+
+Check 37: reconcile_window.assertion.20
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:151:2 in function reconcile_window
+
+Check 38: reconcile_window.assertion.21
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:152:2 in function reconcile_window
+
+Check 39: reconcile_window.assertion.22
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:157:2 in function reconcile_window
+
+Check 40: reconcile_window.assertion.23
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:158:2 in function reconcile_window
+
+Check 41: reconcile_window.assertion.24
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:162:9 in function reconcile_window
+
+Check 42: core::num::<impl i64>::abs.assertion.1
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/num/int_macros.rs:3563:17 in function core::num::<impl i64>::abs
+
+Check 43: <i32 as std::cmp::Ord>::clamp.assertion.1
+	 - Status: SUCCESS
+	 - Description: "assertion failed: min <= max"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1090:9 in function <i32 as std::cmp::Ord>::clamp
+
+Check 44: transition.assertion.1
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:174:2 in function transition
+
+Check 45: transition.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:175:2 in function transition
+
+Check 46: transition.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:180:2 in function transition
+
+Check 47: transition.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:181:2 in function transition
+
+Check 48: transition.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:186:2 in function transition
+
+Check 49: transition.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:187:2 in function transition
+
+Check 50: transition.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: "attempt to divide by zero"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 51: transition.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: "attempt to divide with overflow"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 52: transition.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide with overflow"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 53: transition.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 54: transition.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:190:8 in function transition
+
+Check 55: transition.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:190:8 in function transition
+
+Check 56: transition.assertion.10
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:192:12 in function transition
+
+Check 57: transition.arithmetic_overflow.4
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:192:12 in function transition
+
+Check 58: transition.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:192:2 in function transition
+
+Check 59: transition.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:193:11 in function transition
+
+Check 60: transition.arithmetic_overflow.5
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:193:11 in function transition
+
+Check 61: transition.assertion.13
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:193:2 in function transition
+
+Check 62: transition.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:198:2 in function transition
+
+Check 63: transition.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:199:2 in function transition
+
+Check 64: transition.assertion.16
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:204:2 in function transition
+
+Check 65: transition.assertion.17
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:205:2 in function transition
+
+Check 66: clamp_i64.assertion.1
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:36:2 in function clamp_i64
+
+Check 67: clamp_i64.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:37:2 in function clamp_i64
+
+Check 68: clamp_i64.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:42:2 in function clamp_i64
+
+Check 69: clamp_i64.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:43:2 in function clamp_i64
+
+Check 70: choose_route.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:54:2 in function choose_route
+
+Check 71: choose_route.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:55:2 in function choose_route
+
+Check 72: choose_route.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:56:9 in function choose_route
+
+Check 73: choose_route.assertion.4
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:60:2 in function choose_route
+
+Check 74: choose_route.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:61:2 in function choose_route
+
+Check 75: choose_route.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:62:9 in function choose_route
+
+Check 76: choose_route.assertion.7
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:66:2 in function choose_route
+
+Check 77: choose_route.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:67:2 in function choose_route
+
+Check 78: choose_route.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:68:9 in function choose_route
+
+Check 79: choose_route.assertion.10
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:72:2 in function choose_route
+
+Check 80: choose_route.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:73:2 in function choose_route
+
+Check 81: choose_route.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:74:9 in function choose_route
+
+Check 82: choose_route.assertion.13
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:78:2 in function choose_route
+
+Check 83: choose_route.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:79:2 in function choose_route
+
+Check 84: choose_route.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:80:9 in function choose_route
+
+Check 85: choose_route.assertion.16
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 86: choose_route.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 87: choose_route.assertion.17
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 88: choose_route.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 89: choose_route.assertion.18
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:84:2 in function choose_route
+
+Check 90: choose_route.assertion.19
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 91: choose_route.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 92: choose_route.assertion.20
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:85:2 in function choose_route
+
+Check 93: choose_route.assertion.21
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:86:9 in function choose_route
+
+Check 94: choose_route.assertion.22
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 95: choose_route.arithmetic_overflow.4
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 96: choose_route.assertion.23
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 97: choose_route.arithmetic_overflow.5
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 98: choose_route.assertion.24
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:90:2 in function choose_route
+
+Check 99: choose_route.assertion.25
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 100: choose_route.arithmetic_overflow.6
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 101: choose_route.assertion.26
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:91:2 in function choose_route
+
+Check 102: choose_route.assertion.27
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:92:9 in function choose_route
+
+Check 103: choose_route.assertion.28
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:96:2 in function choose_route
+
+Check 104: choose_route.assertion.29
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:97:2 in function choose_route
+
+Check 105: choose_route.assertion.30
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:98:9 in function choose_route
+
+Check 106: choose_route.assertion.31
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:103:2 in function choose_route
+
+Check 107: choose_route.assertion.32
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:104:2 in function choose_route
+
+Check 108: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 109: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 110: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 111: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 112: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 113: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 114: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 115: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 116: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 117: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 118: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 119: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 120: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 121: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 122: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 123: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 124: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 125: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 126: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 127: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 128: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 129: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 130: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 131: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 132: <Route as std::cmp::PartialEq>::eq.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 133: <Route as std::cmp::PartialEq>::eq.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 134: <Route as std::cmp::PartialEq>::eq.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 135: <Route as std::cmp::PartialEq>::eq.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 136: <Route as std::cmp::PartialEq>::eq.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 137: <Route as std::cmp::PartialEq>::eq.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 138: <Route as std::cmp::PartialEq>::eq.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 139: <Route as std::cmp::PartialEq>::eq.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 140: <Route as std::cmp::PartialEq>::eq.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 141: <Route as std::cmp::PartialEq>::eq.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 142: <Route as std::cmp::PartialEq>::eq.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 143: <Route as std::cmp::PartialEq>::eq.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 144: labyrinth_score.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 145: labyrinth_score.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 146: labyrinth_score.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 147: labyrinth_score.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 148: labyrinth_score.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 149: labyrinth_score.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:224:35 in function labyrinth_score
+
+Check 150: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 151: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 152: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 153: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 154: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 155: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 156: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 157: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 158: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 159: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 160: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 161: std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i64>::lt
+
+Check 162: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 163: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 164: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 165: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 166: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 167: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 168: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 169: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 170: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 171: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 172: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 173: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 174: reconcile_window.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 175: reconcile_window.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 176: reconcile_window.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 177: reconcile_window.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 178: reconcile_window.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 179: reconcile_window.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+
+SUMMARY:
+ ** 9 of 179 failed (79 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 222, in labyrinth_score
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 66, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+VERIFICATION:- FAILED
+Verification Time: 0.4270353s
+
+Checking harness kani_harness_transition...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit x86_64 linux
+Reading GOTO program from file /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract__RNvCs4wdyTFz6j0q_18labyrinth_contract23kani_harness_transition.out
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+Runtime Symex: 0.092069s
+size of program expression: 1970 steps
+slicing removed 1079 assignments
+Generated 270 VCC(s), 102 remaining after simplification
+Runtime Postprocess Equation: 0.00266598s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0411011s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 2.3675e-05s
+Solving with CaDiCaL 2.0.0
+9705 variables, 28600 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00248152s
+Runtime decision procedure: 0.0443406s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9706 variables, 28601 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0016913s
+Runtime decision procedure: 0.00232772s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9707 variables, 28602 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00227615s
+Runtime decision procedure: 0.00273996s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9708 variables, 28603 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00213732s
+Runtime decision procedure: 0.00295115s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9709 variables, 28604 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00262048s
+Runtime decision procedure: 0.00318437s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9710 variables, 28605 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00333738s
+Runtime decision procedure: 0.00498506s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9711 variables, 28606 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00415526s
+Runtime decision procedure: 0.00465438s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9712 variables, 28607 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00109712s
+Runtime decision procedure: 0.00150642s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9713 variables, 28608 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00167365s
+Runtime decision procedure: 0.00236662s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9714 variables, 28609 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00198098s
+Runtime decision procedure: 0.00234238s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9715 variables, 28610 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00534304s
+Runtime decision procedure: 0.00772079s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9716 variables, 28611 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0069196s
+Runtime decision procedure: 0.00824264s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9717 variables, 28612 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00345428s
+Runtime decision procedure: 0.00507389s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9718 variables, 28613 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00176536s
+Runtime decision procedure: 0.00208711s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9719 variables, 28614 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00325147s
+Runtime decision procedure: 0.00368338s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9720 variables, 28615 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00642058s
+Runtime decision procedure: 0.00691592s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+9721 variables, 28616 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.00357145s
+Runtime decision procedure: 0.00393944s
+
+RESULTS:
+Check 1: <i32 as std::cmp::Ord>::clamp.assertion.1
+	 - Status: SUCCESS
+	 - Description: "assertion failed: min <= max"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1090:9 in function <i32 as std::cmp::Ord>::clamp
+
+Check 2: transition.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:174:2 in function transition
+
+Check 3: transition.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:175:2 in function transition
+
+Check 4: transition.assertion.3
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:180:2 in function transition
+
+Check 5: transition.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:181:2 in function transition
+
+Check 6: transition.assertion.5
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:186:2 in function transition
+
+Check 7: transition.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:187:2 in function transition
+
+Check 8: transition.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: "attempt to divide by zero"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 9: transition.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: "attempt to divide with overflow"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 10: transition.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide with overflow"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 11: transition.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: labyrinth_contract.rs:188:52 in function transition
+
+Check 12: transition.assertion.9
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:190:8 in function transition
+
+Check 13: transition.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:190:8 in function transition
+
+Check 14: transition.assertion.10
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:192:12 in function transition
+
+Check 15: transition.arithmetic_overflow.4
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:192:12 in function transition
+
+Check 16: transition.assertion.11
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:192:2 in function transition
+
+Check 17: transition.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:193:11 in function transition
+
+Check 18: transition.arithmetic_overflow.5
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:193:11 in function transition
+
+Check 19: transition.assertion.13
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:193:2 in function transition
+
+Check 20: transition.assertion.14
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:198:2 in function transition
+
+Check 21: transition.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:199:2 in function transition
+
+Check 22: transition.assertion.16
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:204:2 in function transition
+
+Check 23: transition.assertion.17
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:205:2 in function transition
+
+Check 24: clamp_i64.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:36:2 in function clamp_i64
+
+Check 25: clamp_i64.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:37:2 in function clamp_i64
+
+Check 26: clamp_i64.assertion.3
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:42:2 in function clamp_i64
+
+Check 27: clamp_i64.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:43:2 in function clamp_i64
+
+Check 28: kani_any_Route.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:283:11 in function kani_any_Route
+
+Check 29: kani_any_Route.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:283:11 in function kani_any_Route
+
+Check 30: choose_route.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:54:2 in function choose_route
+
+Check 31: choose_route.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:55:2 in function choose_route
+
+Check 32: choose_route.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:56:9 in function choose_route
+
+Check 33: choose_route.assertion.4
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:60:2 in function choose_route
+
+Check 34: choose_route.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:61:2 in function choose_route
+
+Check 35: choose_route.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:62:9 in function choose_route
+
+Check 36: choose_route.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:66:2 in function choose_route
+
+Check 37: choose_route.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:67:2 in function choose_route
+
+Check 38: choose_route.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:68:9 in function choose_route
+
+Check 39: choose_route.assertion.10
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:72:2 in function choose_route
+
+Check 40: choose_route.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:73:2 in function choose_route
+
+Check 41: choose_route.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:74:9 in function choose_route
+
+Check 42: choose_route.assertion.13
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:78:2 in function choose_route
+
+Check 43: choose_route.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:79:2 in function choose_route
+
+Check 44: choose_route.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:80:9 in function choose_route
+
+Check 45: choose_route.assertion.16
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 46: choose_route.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 47: choose_route.assertion.17
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 48: choose_route.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 49: choose_route.assertion.18
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:84:2 in function choose_route
+
+Check 50: choose_route.assertion.19
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 51: choose_route.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 52: choose_route.assertion.20
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:85:2 in function choose_route
+
+Check 53: choose_route.assertion.21
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:86:9 in function choose_route
+
+Check 54: choose_route.assertion.22
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 55: choose_route.arithmetic_overflow.4
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 56: choose_route.assertion.23
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 57: choose_route.arithmetic_overflow.5
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 58: choose_route.assertion.24
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:90:2 in function choose_route
+
+Check 59: choose_route.assertion.25
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 60: choose_route.arithmetic_overflow.6
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 61: choose_route.assertion.26
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:91:2 in function choose_route
+
+Check 62: choose_route.assertion.27
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:92:9 in function choose_route
+
+Check 63: choose_route.assertion.28
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:96:2 in function choose_route
+
+Check 64: choose_route.assertion.29
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:97:2 in function choose_route
+
+Check 65: choose_route.assertion.30
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:98:9 in function choose_route
+
+Check 66: choose_route.assertion.31
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:103:2 in function choose_route
+
+Check 67: choose_route.assertion.32
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:104:2 in function choose_route
+
+Check 68: core::num::<impl i64>::abs.assertion.1
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/num/int_macros.rs:3563:17 in function core::num::<impl i64>::abs
+
+Check 69: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 70: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 71: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 72: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 73: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 74: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 75: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 76: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 77: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 78: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 79: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 80: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1905:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::le
+
+Check 81: <Route as std::cmp::PartialEq>::eq.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 82: <Route as std::cmp::PartialEq>::eq.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 83: <Route as std::cmp::PartialEq>::eq.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 84: <Route as std::cmp::PartialEq>::eq.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 85: <Route as std::cmp::PartialEq>::eq.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 86: <Route as std::cmp::PartialEq>::eq.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 87: <Route as std::cmp::PartialEq>::eq.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 88: <Route as std::cmp::PartialEq>::eq.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 89: <Route as std::cmp::PartialEq>::eq.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 90: <Route as std::cmp::PartialEq>::eq.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 91: <Route as std::cmp::PartialEq>::eq.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 92: <Route as std::cmp::PartialEq>::eq.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:4:30 in function <Route as std::cmp::PartialEq>::eq
+
+Check 93: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 94: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 95: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 96: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 97: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 98: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 99: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 100: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 101: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 102: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 103: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 104: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1907:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::gt
+
+Check 105: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 106: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 107: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 108: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 109: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 110: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:50 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 111: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.7
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 112: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.8
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 113: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.9
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 114: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.10
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 115: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.11
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+Check 116: std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt.pointer_dereference.12
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: ../../../runner/.rustup/toolchains/nightly-2025-11-21-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1903:59 in function std::cmp::impls::<impl std::cmp::PartialOrd for i32>::lt
+
+
+SUMMARY:
+ ** 15 of 116 failed (33 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 174, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 180, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 186, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 192, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 198, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 204, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 36, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 42, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+VERIFICATION:- FAILED
+Verification Time: 0.8093505s
+
+Checking harness kani_harness_reconcile_window...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit x86_64 linux
+Reading GOTO program from file /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract__RNvCs4wdyTFz6j0q_18labyrinth_contract29kani_harness_reconcile_window.out
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+Runtime Symex: 0.0107813s
+size of program expression: 321 steps
+slicing removed 234 assignments
+Generated 2 VCC(s), 2 remaining after simplification
+Runtime Postprocess Equation: 0.000132952s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.000870005s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 1.9768e-05s
+Solving with CaDiCaL 2.0.0
+194 variables, 130 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000301194s
+Runtime decision procedure: 0.00147678s
+
+RESULTS:
+Check 1: reconcile_window.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:121:2 in function reconcile_window
+
+Check 2: reconcile_window.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:122:2 in function reconcile_window
+
+Check 3: reconcile_window.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "index out of bounds: the length is less than or equal to the given index"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 4: reconcile_window.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:127:2 in function reconcile_window
+
+Check 5: reconcile_window.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:128:2 in function reconcile_window
+
+Check 6: reconcile_window.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:129:38 in function reconcile_window
+
+Check 7: reconcile_window.assertion.7
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:131:22 in function reconcile_window
+
+Check 8: reconcile_window.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:133:22 in function reconcile_window
+
+Check 9: reconcile_window.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:133:2 in function reconcile_window
+
+Check 10: reconcile_window.assertion.10
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:134:21 in function reconcile_window
+
+Check 11: reconcile_window.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:134:2 in function reconcile_window
+
+Check 12: reconcile_window.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to negate with overflow"
+	 - Location: labyrinth_contract.rs:135:38 in function reconcile_window
+
+Check 13: reconcile_window.assertion.13
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:139:2 in function reconcile_window
+
+Check 14: reconcile_window.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:140:2 in function reconcile_window
+
+Check 15: reconcile_window.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:143:12 in function reconcile_window
+
+Check 16: reconcile_window.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:143:12 in function reconcile_window
+
+Check 17: reconcile_window.assertion.16
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:145:12 in function reconcile_window
+
+Check 18: reconcile_window.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:145:12 in function reconcile_window
+
+Check 19: reconcile_window.assertion.17
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:145:2 in function reconcile_window
+
+Check 20: reconcile_window.assertion.18
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:146:11 in function reconcile_window
+
+Check 21: reconcile_window.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:146:11 in function reconcile_window
+
+Check 22: reconcile_window.assertion.19
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:146:2 in function reconcile_window
+
+Check 23: reconcile_window.assertion.20
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:151:2 in function reconcile_window
+
+Check 24: reconcile_window.assertion.21
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:152:2 in function reconcile_window
+
+Check 25: reconcile_window.assertion.22
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:157:2 in function reconcile_window
+
+Check 26: reconcile_window.assertion.23
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:158:2 in function reconcile_window
+
+Check 27: reconcile_window.assertion.24
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:162:9 in function reconcile_window
+
+Check 28: reconcile_window.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer NULL"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 29: reconcile_window.pointer_dereference.2
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer invalid"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 30: reconcile_window.pointer_dereference.3
+	 - Status: SUCCESS
+	 - Description: "dereference failure: deallocated dynamic object"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 31: reconcile_window.pointer_dereference.4
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 32: reconcile_window.pointer_dereference.5
+	 - Status: SUCCESS
+	 - Description: "dereference failure: pointer outside object bounds"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+Check 33: reconcile_window.pointer_dereference.6
+	 - Status: SUCCESS
+	 - Description: "dereference failure: invalid integer address"
+	 - Location: labyrinth_contract.rs:123:23 in function reconcile_window
+
+
+SUMMARY:
+ ** 1 of 33 failed (23 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 121, in reconcile_window
+
+VERIFICATION:- FAILED
+Verification Time: 0.06312351s
+
+Checking harness kani_harness_choose_route...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit x86_64 linux
+Reading GOTO program from file /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract__RNvCs4wdyTFz6j0q_18labyrinth_contract25kani_harness_choose_route.out
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+Runtime Symex: 0.0387406s
+size of program expression: 757 steps
+slicing removed 427 assignments
+Generated 66 VCC(s), 53 remaining after simplification
+Runtime Postprocess Equation: 0.000524042s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0106512s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 0.000226359s
+Solving with CaDiCaL 2.0.0
+1810 variables, 5833 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00244158s
+Runtime decision procedure: 0.0141251s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1811 variables, 5834 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00469977s
+Runtime decision procedure: 0.00520418s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1812 variables, 5835 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00212588s
+Runtime decision procedure: 0.00476773s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1813 variables, 5836 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00182318s
+Runtime decision procedure: 0.00266459s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1814 variables, 5837 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00640336s
+Runtime decision procedure: 0.00682439s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1815 variables, 5838 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000632122s
+Runtime decision procedure: 0.000934454s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1816 variables, 5839 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0035491s
+Runtime decision procedure: 0.00381571s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1817 variables, 5840 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00126589s
+Runtime decision procedure: 0.00150127s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1818 variables, 5841 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000424425s
+Runtime decision procedure: 0.000710766s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+1819 variables, 5842 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.000645884s
+Runtime decision procedure: 0.000973358s
+
+RESULTS:
+Check 1: choose_route.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:54:2 in function choose_route
+
+Check 2: choose_route.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:55:2 in function choose_route
+
+Check 3: choose_route.assertion.3
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:56:9 in function choose_route
+
+Check 4: choose_route.assertion.4
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:60:2 in function choose_route
+
+Check 5: choose_route.assertion.5
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:61:2 in function choose_route
+
+Check 6: choose_route.assertion.6
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:62:9 in function choose_route
+
+Check 7: choose_route.assertion.7
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:66:2 in function choose_route
+
+Check 8: choose_route.assertion.8
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:67:2 in function choose_route
+
+Check 9: choose_route.assertion.9
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:68:9 in function choose_route
+
+Check 10: choose_route.assertion.10
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:72:2 in function choose_route
+
+Check 11: choose_route.assertion.11
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:73:2 in function choose_route
+
+Check 12: choose_route.assertion.12
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:74:9 in function choose_route
+
+Check 13: choose_route.assertion.13
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:78:2 in function choose_route
+
+Check 14: choose_route.assertion.14
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:79:2 in function choose_route
+
+Check 15: choose_route.assertion.15
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:80:9 in function choose_route
+
+Check 16: choose_route.assertion.16
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 17: choose_route.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:82:8 in function choose_route
+
+Check 18: choose_route.assertion.17
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 19: choose_route.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:84:12 in function choose_route
+
+Check 20: choose_route.assertion.18
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:84:2 in function choose_route
+
+Check 21: choose_route.assertion.19
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 22: choose_route.arithmetic_overflow.3
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:85:11 in function choose_route
+
+Check 23: choose_route.assertion.20
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:85:2 in function choose_route
+
+Check 24: choose_route.assertion.21
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:86:9 in function choose_route
+
+Check 25: choose_route.assertion.22
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 26: choose_route.arithmetic_overflow.4
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:88:8 in function choose_route
+
+Check 27: choose_route.assertion.23
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 28: choose_route.arithmetic_overflow.5
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:90:12 in function choose_route
+
+Check 29: choose_route.assertion.24
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:90:2 in function choose_route
+
+Check 30: choose_route.assertion.25
+	 - Status: UNREACHABLE
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 31: choose_route.arithmetic_overflow.6
+	 - Status: SUCCESS
+	 - Description: "attempt to calculate the remainder with a divisor of zero"
+	 - Location: labyrinth_contract.rs:91:11 in function choose_route
+
+Check 32: choose_route.assertion.26
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:91:2 in function choose_route
+
+Check 33: choose_route.assertion.27
+	 - Status: UNREACHABLE
+	 - Description: "attempt to add with overflow"
+	 - Location: labyrinth_contract.rs:92:9 in function choose_route
+
+Check 34: choose_route.assertion.28
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:96:2 in function choose_route
+
+Check 35: choose_route.assertion.29
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:97:2 in function choose_route
+
+Check 36: choose_route.assertion.30
+	 - Status: UNREACHABLE
+	 - Description: "attempt to subtract with overflow"
+	 - Location: labyrinth_contract.rs:98:9 in function choose_route
+
+Check 37: choose_route.assertion.31
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:103:2 in function choose_route
+
+Check 38: choose_route.assertion.32
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:104:2 in function choose_route
+
+
+SUMMARY:
+ ** 8 of 38 failed (20 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 66, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+VERIFICATION:- FAILED
+Verification Time: 0.28951186s
+
+Checking harness kani_harness_clamp_i64...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit x86_64 linux
+Reading GOTO program from file /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract__RNvCs4wdyTFz6j0q_18labyrinth_contract22kani_harness_clamp_i64.out
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+Runtime Symex: 0.00856529s
+size of program expression: 238 steps
+slicing removed 112 assignments
+Generated 8 VCC(s), 8 remaining after simplification
+Runtime Postprocess Equation: 0.000112462s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.00158007s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 1.1072e-05s
+Solving with CaDiCaL 2.0.0
+546 variables, 980 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000234465s
+Runtime decision procedure: 0.00200416s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+547 variables, 981 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.000809508s
+Runtime decision procedure: 0.000878987s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+548 variables, 982 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.000173835s
+Runtime decision procedure: 0.000259753s
+
+RESULTS:
+Check 1: clamp_i64.assertion.1
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:36:2 in function clamp_i64
+
+Check 2: clamp_i64.assertion.2
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:37:2 in function clamp_i64
+
+Check 3: clamp_i64.assertion.3
+	 - Status: FAILURE
+	 - Description: ""REACHABLE_TRUE""
+	 - Location: labyrinth_contract.rs:42:2 in function clamp_i64
+
+Check 4: clamp_i64.assertion.4
+	 - Status: UNREACHABLE
+	 - Description: ""REACHABLE_FALSE""
+	 - Location: labyrinth_contract.rs:43:2 in function clamp_i64
+
+
+SUMMARY:
+ ** 2 of 4 failed (2 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 36, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 42, in clamp_i64
+
+VERIFICATION:- FAILED
+Verification Time: 0.063910566s
+
+Manual Harness Summary:
+Verification failed for - kani_harness_labyrinth_score
+Verification failed for - kani_harness_transition
+Verification failed for - kani_harness_reconcile_window
+Verification failed for - kani_harness_choose_route
+Verification failed for - kani_harness_clamp_i64
+Complete - 0 successfully verified harnesses, 5 failures, 5 total.

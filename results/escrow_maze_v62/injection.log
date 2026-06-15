@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'escrow_maze_inline_probe'
+DEBUG: Generating standalone harness for function 'escrow_maze_clamp'
+DEBUG: Generating standalone harness for function 'escrow_maze_mode'
+DEBUG: Generating standalone harness for function 'escrow_maze_action'
+DEBUG: Generating standalone harness for function 'escrow_maze_score'
+DEBUG: Generating standalone harness for function 'escrow_maze_walk'
+DEBUG: Generating standalone harness for function 'escrow_maze_transition'
+70

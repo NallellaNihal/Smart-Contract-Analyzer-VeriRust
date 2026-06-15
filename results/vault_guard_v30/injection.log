@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'vault_guard_inline_probe'
+DEBUG: Generating standalone harness for function 'vault_guard_clamp'
+DEBUG: Generating standalone harness for function 'vault_guard_mode'
+DEBUG: Generating standalone harness for function 'vault_guard_action'
+DEBUG: Generating standalone harness for function 'vault_guard_score'
+DEBUG: Generating standalone harness for function 'vault_guard_walk'
+DEBUG: Generating standalone harness for function 'vault_guard_transition'
+70

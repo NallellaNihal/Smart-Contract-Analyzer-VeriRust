@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'liquidation_engine_inline_probe'
+DEBUG: Generating standalone harness for function 'liquidation_engine_clamp'
+DEBUG: Generating standalone harness for function 'liquidation_engine_mode'
+DEBUG: Generating standalone harness for function 'liquidation_engine_action'
+DEBUG: Generating standalone harness for function 'liquidation_engine_score'
+DEBUG: Generating standalone harness for function 'liquidation_engine_walk'
+DEBUG: Generating standalone harness for function 'liquidation_engine_transition'
+62

@@ -1,0 +1,21 @@
+═══════════════════════════════════════════════════════════════
+CARGO LLVM-COV COVERAGE REPORT - balance_guard
+═══════════════════════════════════════════════════════════════
+Contract: balance_guard
+Analysis Date: Thu Jun  4 10:29:39 AM IST 2026
+Project Folder: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/passing_contracts/balance_guard/src
+Analysis Type: Branch/Condition Coverage
+Status: FAILED/PARTIAL
+Exit Code: 101
+Execution Time: .065390201 seconds
+
+Generated Artifacts:
+  • index.html - Interactive HTML coverage report
+  • llvm_cov_output.log - Full cargo llvm-cov output
+  • LLVM_COVERAGE_SUMMARY.txt - This summary
+
+Coverage Report Details:
+  └─ Report Type: Branch and Condition Coverage
+  └─ Format: HTML (standalone)
+  └─ Open in browser: file:///home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/results/balance_guard/coverage_report/index.html
+

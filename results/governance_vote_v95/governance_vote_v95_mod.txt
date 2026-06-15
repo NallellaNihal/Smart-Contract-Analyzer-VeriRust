@@ -1,0 +1,390 @@
+// VeriRust Analyzer Target File: governance_vote_v95.rs
+// Description: Governance vote quorum and veto simulation - varied analyzer test case 95
+// Audit marker: unchecked path should fail.
+// Audit marker: panic! branch is modeled.
+// Audit marker: overflow boundary is present.
+// Audit marker: out of bounds branch is represented.
+// Audit marker: division by zero case is documented.
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ContractMode {
+    Idle,
+    Collecting,
+    Ready,
+    Review,
+    Locked,
+    Emergency,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ContractAction {
+    Open,
+    Deposit,
+    Withdraw,
+    Challenge,
+    Settle,
+    Admin,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct ContractState {
+    pub amount: u64,
+    pub limit: u64,
+    pub signal: u32,
+    pub epoch: u32,
+    pub mode: ContractMode,
+}
+
+fn advance_gate(gate: &mut u8, limit: u8) -> bool {
+    let current = *gate;
+    *gate = gate.saturating_add(1);
+    current < limit
+}
+
+pub fn governance_vote_inline_probe(value: u32, guard: u32) -> u32 {
+    if value > guard { value.saturating_add(5) } else { guard.saturating_sub(value % 6) }
+	// KANI INJECTION: Check Reachability
+	assert!(!(value > guard), "REACHABLE_TRUE");
+	assert!((value > guard), "REACHABLE_FALSE");
+}
+
+pub fn governance_vote_clamp(value: u64, cap: u64) -> u64 {
+    if value > cap {
+	// KANI INJECTION: Check Reachability
+	assert!(!(value > cap), "REACHABLE_TRUE");
+	assert!((value > cap), "REACHABLE_FALSE");
+        return cap;
+    }
+    value
+}
+
+pub fn governance_vote_mode(raw: u8) -> ContractMode {
+    if raw == 0 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(raw == 0), "REACHABLE_TRUE");
+	assert!((raw == 0), "REACHABLE_FALSE");
+        return ContractMode::Review;
+    }
+    if raw == 1 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(raw == 1), "REACHABLE_TRUE");
+	assert!((raw == 1), "REACHABLE_FALSE");
+        return ContractMode::Emergency;
+    }
+    if raw > 169 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(raw > 169), "REACHABLE_TRUE");
+	assert!((raw > 169), "REACHABLE_FALSE");
+        return ContractMode::Emergency;
+    }
+    ContractMode::Review
+}
+
+pub fn governance_vote_action(raw: u8) -> ContractAction {
+    if raw == 5 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(raw == 5), "REACHABLE_TRUE");
+	assert!((raw == 5), "REACHABLE_FALSE");
+        return ContractAction::Challenge;
+    }
+    if raw > 184 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(raw > 184), "REACHABLE_TRUE");
+	assert!((raw > 184), "REACHABLE_FALSE");
+        return ContractAction::Open;
+    }
+    ContractAction::Challenge
+}
+
+pub fn governance_vote_score(amount: u64, limit: u64, signal: u32, epoch: u32, flag: bool) -> i64 {
+    let mut score = governance_vote_inline_probe(signal, 65) as i64;
+
+    let mut gate_0 = 0u8;
+    if advance_gate(&mut gate_0, 4) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_0, 4)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_0, 4)), "REACHABLE_FALSE");
+        score = score.saturating_add(10);
+    }
+    let mut gate_1 = 0u8;
+    if advance_gate(&mut gate_1, 1) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_1, 1)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_1, 1)), "REACHABLE_FALSE");
+        score = score.saturating_add(14);
+    }
+    let mut gate_2 = 0u8;
+    if advance_gate(&mut gate_2, 2) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_2, 2)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_2, 2)), "REACHABLE_FALSE");
+        score = score.saturating_add(5);
+    }
+    let mut gate_3 = 0u8;
+    if advance_gate(&mut gate_3, 3) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_3, 3)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_3, 3)), "REACHABLE_FALSE");
+        score = score.saturating_add(9);
+    }
+    let mut gate_4 = 0u8;
+    if advance_gate(&mut gate_4, 4) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_4, 4)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_4, 4)), "REACHABLE_FALSE");
+        score = score.saturating_add(13);
+    }
+    let mut gate_5 = 0u8;
+    if advance_gate(&mut gate_5, 1) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_5, 1)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_5, 1)), "REACHABLE_FALSE");
+        score = score.saturating_add(4);
+    }
+    let mut gate_6 = 0u8;
+    if advance_gate(&mut gate_6, 2) {
+	// KANI INJECTION: Check Reachability
+	assert!(!(advance_gate(&mut gate_6, 2)), "REACHABLE_TRUE");
+	assert!((advance_gate(&mut gate_6, 2)), "REACHABLE_FALSE");
+        score = score.saturating_add(8);
+    }
+
+    if signal > 45 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(signal > 45), "REACHABLE_TRUE");
+	assert!((signal > 45), "REACHABLE_FALSE");
+        score = score.saturating_add((signal % 17) as i64);
+    }
+    if amount > limit {
+	// KANI INJECTION: Check Reachability
+	assert!(!(amount > limit), "REACHABLE_TRUE");
+	assert!((amount > limit), "REACHABLE_FALSE");
+        score = score.saturating_sub(7);
+    }
+    if flag && !flag {
+	// KANI INJECTION: Check Reachability
+	assert!(!(flag && !flag), "REACHABLE_TRUE");
+	assert!((flag && !flag), "REACHABLE_FALSE");
+        score = score.saturating_add(999);
+    }
+    if epoch % 6 == 0 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(epoch % 6 == 0), "REACHABLE_TRUE");
+	assert!((epoch % 6 == 0), "REACHABLE_FALSE");
+        score = score.saturating_add(7);
+    }
+    if score > 458 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(score > 458), "REACHABLE_TRUE");
+	assert!((score > 458), "REACHABLE_FALSE");
+        score = 458;
+    }
+    if score < -458 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(score < -458), "REACHABLE_TRUE");
+	assert!((score < -458), "REACHABLE_FALSE");
+        score = -458;
+    }
+    score
+}
+
+pub fn governance_vote_walk(seed: u64, data: &[u64], flag: bool) -> u64 {
+    let mut index = 0usize;
+    let mut acc = seed % 71;
+
+    while index < data.len() && index < 4 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(index < data.len() && index < 4), "REACHABLE_TRUE");
+	assert!((index < data.len() && index < 4), "REACHABLE_FALSE");
+        let item = data[index];
+        if item > acc {
+	// KANI INJECTION: Check Reachability
+	assert!(!(item > acc), "REACHABLE_TRUE");
+	assert!((item > acc), "REACHABLE_FALSE");
+            acc = acc.saturating_add(item % 15);
+        }
+        if item == seed {
+	// KANI INJECTION: Check Reachability
+	assert!(!(item == seed), "REACHABLE_TRUE");
+	assert!((item == seed), "REACHABLE_FALSE");
+            acc = acc.saturating_add(5);
+        }
+        if flag && !flag {
+	// KANI INJECTION: Check Reachability
+	assert!(!(flag && !flag), "REACHABLE_TRUE");
+	assert!((flag && !flag), "REACHABLE_FALSE");
+            acc = acc.saturating_add(333);
+        }
+        index += 1;
+    }
+
+    governance_vote_clamp(acc, 985)
+}
+
+pub fn governance_vote_transition(state_code: u8, action_code: u8, amount: u64, limit: u64, signal: u32, epoch: u32, history: &[u64]) -> u8 {
+    let mut mode = governance_vote_mode(state_code);
+    let action = governance_vote_action(action_code);
+    let risk = governance_vote_score(amount, limit, signal, epoch, action_code % 2 == 0);
+    let trail = governance_vote_walk(amount, history, state_code % 2 == 1);
+
+    if mode == ContractMode::Review {
+	// KANI INJECTION: Check Reachability
+	assert!(!(mode == ContractMode::Review), "REACHABLE_TRUE");
+	assert!((mode == ContractMode::Review), "REACHABLE_FALSE");
+        if action == ContractAction::Challenge {
+	// KANI INJECTION: Check Reachability
+	assert!(!(action == ContractAction::Challenge), "REACHABLE_TRUE");
+	assert!((action == ContractAction::Challenge), "REACHABLE_FALSE");
+            mode = ContractMode::Collecting;
+        }
+    }
+    if mode == ContractMode::Emergency {
+	// KANI INJECTION: Check Reachability
+	assert!(!(mode == ContractMode::Emergency), "REACHABLE_TRUE");
+	assert!((mode == ContractMode::Emergency), "REACHABLE_FALSE");
+        if risk > 12 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(risk > 12), "REACHABLE_TRUE");
+	assert!((risk > 12), "REACHABLE_FALSE");
+            mode = ContractMode::Ready;
+        }
+    }
+    if trail > limit {
+	// KANI INJECTION: Check Reachability
+	assert!(!(trail > limit), "REACHABLE_TRUE");
+	assert!((trail > limit), "REACHABLE_FALSE");
+        mode = ContractMode::Locked;
+    }
+    if amount > amount {
+	// KANI INJECTION: Check Reachability
+	assert!(!(amount > amount), "REACHABLE_TRUE");
+	assert!((amount > amount), "REACHABLE_FALSE");
+        mode = ContractMode::Emergency;
+    }
+    if signal > 235 {
+	// KANI INJECTION: Check Reachability
+	assert!(!(signal > 235), "REACHABLE_TRUE");
+	assert!((signal > 235), "REACHABLE_FALSE");
+        mode = ContractMode::Review;
+    }
+
+    match mode {
+        ContractMode::Idle => 0,
+        ContractMode::Collecting => 1,
+        ContractMode::Ready => 2,
+        ContractMode::Review => 3,
+        ContractMode::Locked => 4,
+        ContractMode::Emergency => 5,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn score_is_bounded() {
+        let score = governance_vote_score(40, 80, 12, 3, true);
+        assert!(score <= 458);
+        assert!(score >= -458);
+    }
+
+    #[test]
+    fn transition_returns_known_code() {
+        let values = [1, 2, 3, 4];
+        let code = governance_vote_transition(0, 1, 10, 20, 5, 2, &values);
+        assert!(code <= 5);
+    }
+}
+
+
+// --- AUTO-GENERATED KANI HARNESSES ---
+#[cfg(kani)]
+fn kani_any_ContractMode() -> ContractMode {
+    let choice: u8 = kani::any();
+    match choice % 6 {
+        0 => ContractMode::Idle,
+        1 => ContractMode::Collecting,
+        2 => ContractMode::Ready,
+        3 => ContractMode::Review,
+        4 => ContractMode::Locked,
+        _ => ContractMode::Emergency,
+    }
+}
+
+#[cfg(kani)]
+fn kani_any_ContractAction() -> ContractAction {
+    let choice: u8 = kani::any();
+    match choice % 6 {
+        0 => ContractAction::Open,
+        1 => ContractAction::Deposit,
+        2 => ContractAction::Withdraw,
+        3 => ContractAction::Challenge,
+        4 => ContractAction::Settle,
+        _ => ContractAction::Admin,
+    }
+}
+
+#[cfg(kani)]
+fn kani_any_ContractState() -> ContractState {
+    ContractState {
+        amount: kani::any::<u64>(),
+        limit: kani::any::<u64>(),
+        signal: kani::any::<u32>(),
+        epoch: kani::any::<u32>(),
+        mode: kani_any_ContractMode(),
+    }
+}
+
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_inline_probe() {
+    let _ = governance_vote_inline_probe(kani::any::<u32>(), kani::any::<u32>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_clamp() {
+    let _ = governance_vote_clamp(kani::any::<u64>(), kani::any::<u64>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_mode() {
+    let _ = governance_vote_mode(kani::any::<u8>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_action() {
+    let _ = governance_vote_action(kani::any::<u8>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_score() {
+    let _ = governance_vote_score(kani::any::<u64>(), kani::any::<u64>(), kani::any::<u32>(), kani::any::<u32>(), kani::any::<bool>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_walk() {
+    let data_items = [
+        kani::any::<u64>(),
+        kani::any::<u64>(),
+        kani::any::<u64>(),
+    ];
+    let _ = governance_vote_walk(kani::any::<u64>(), &data_items, kani::any::<bool>());
+}
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_harness_governance_vote_transition() {
+    let history_items = [
+        kani::any::<u64>(),
+        kani::any::<u64>(),
+        kani::any::<u64>(),
+    ];
+    let _ = governance_vote_transition(kani::any::<u8>(), kani::any::<u8>(), kani::any::<u64>(), kani::any::<u64>(), kani::any::<u32>(), kani::any::<u32>(), &history_items);
+}

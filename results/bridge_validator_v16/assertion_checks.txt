@@ -1,0 +1,5 @@
+═══════════════════════════════════════════════════════════════
+FAILED ASSERTION CHECKS: bridge_validator_v16
+═══════════════════════════════════════════════════════════════
+
+No failed REACHABLE_TRUE or REACHABLE_FALSE assertion checks found.

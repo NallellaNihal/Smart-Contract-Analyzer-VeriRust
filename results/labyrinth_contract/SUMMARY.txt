@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: labyrinth_contract
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Thu Jun  4 10:26:01 AM IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  29 (50%)
+  ✓ REACHABLE_FALSE: 29 (50%)
+  ✓ Total Asserts:   58
+
+Reachability Coverage:
+  Coverage Basis:    KANI
+  ✓ TRUE paths:      29 / 29
+  ✓ FALSE paths:     0 / 29
+  ✓ Total Reachable: 29 / 58
+  → Condition Coverage: 50%
+
+Execution Time: 4.193882129 seconds
+
+Generated Files:
+  • labyrinth_contract_original.txt - Original source (backup)
+  • labyrinth_contract_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

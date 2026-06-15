@@ -58,8 +58,13 @@ fi
 # Derive input name for results subfolder
 INPUT_NAME=$(basename "${INPUT%/}")
 INPUT_NAME="${INPUT_NAME%.rs}"
+if [ "$SINGLE_FILE_MODE" = true ] && [ "$(basename "$TARGET_FILE")" = "lib.rs" ] && [ "$(basename "$(dirname "$TARGET_FILE")")" = "src" ]; then
+    INPUT_NAME=$(basename "$(dirname "$(dirname "$TARGET_FILE")")")
+fi
 
-# Create results directory structure: results/<input_name>/<contract>/
+# Create results directory structure:
+#   single file: results/<contract>/
+#   folder/workspace: results/<input_name>/<contract>/
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 MAIN_RESULTS_DIR="$SCRIPT_DIR/results/$INPUT_NAME"
 mkdir -p "$MAIN_RESULTS_DIR"
@@ -105,6 +110,30 @@ is_cargo_workspace() {
         return $?
     fi
     return 1
+}
+
+write_missing_tool_log() {
+    local output_file="$1"
+    local tool_name="$2"
+    local step_name="$3"
+    local install_hint="$4"
+
+    {
+        echo "Tool unavailable: $tool_name"
+        echo ""
+        echo "Step skipped: $step_name"
+        echo "Reason: '$tool_name' was not found in PATH on this machine."
+        echo ""
+        echo "What this means:"
+        echo "  The analyzer script reached this step, but the required external tool is not installed"
+        echo "  or is not available to the current shell session."
+        echo ""
+        echo "How to fix:"
+        echo "  $install_hint"
+        echo ""
+        echo "After installing the tool, rerun:"
+        echo "  ./verify_rust.sh <folder_or_file>"
+    } > "$output_file"
 }
 
 count_kani_reachability_failures() {
@@ -172,6 +201,52 @@ estimate_false_paths_without_kani() {
     fi
 }
 
+write_assertion_checks() {
+    local kani_output_file="$1"
+    local assertion_checks_file="$2"
+    local contract_name="$3"
+
+    {
+        echo "═══════════════════════════════════════════════════════════════"
+        echo "FAILED ASSERTION CHECKS: $contract_name"
+        echo "═══════════════════════════════════════════════════════════════"
+        echo ""
+        awk '
+            BEGIN {
+                found = 0
+                pending_summary = ""
+            }
+            /^SUMMARY:/ {
+                summary = $0
+                if ((getline next_line) > 0 && next_line ~ /^ \*\*/) {
+                    pending_summary = summary "\n" next_line
+                }
+                next
+            }
+            /^Failed Checks: "REACHABLE_(TRUE|FALSE)"/ {
+                if (pending_summary != "") {
+                    if (found > 0) {
+                        print ""
+                    }
+                    print pending_summary
+                    pending_summary = ""
+                }
+                print $0
+                if ((getline file_line) > 0 && file_line ~ /^ File:/) {
+                    print file_line
+                }
+                found++
+                next
+            }
+            END {
+                if (found == 0) {
+                    print "No failed REACHABLE_TRUE or REACHABLE_FALSE assertion checks found."
+                }
+            }
+        ' "$kani_output_file" 2>/dev/null
+    } > "$assertion_checks_file"
+}
+
 # Build the list of files to process
 if [ "$SINGLE_FILE_MODE" = true ]; then
     # Single file mode - just process this one file
@@ -212,7 +287,11 @@ while IFS= read -r TARGET_FILE; do
     RELATIVE_PATH="${TARGET_FILE#$PROJECT_FOLDER/}"
     
     # Extract contract name (use the deepest directory or filename)
-    if [[ "$RELATIVE_PATH" == *"/"* ]]; then
+    if [ "$SINGLE_FILE_MODE" = true ]; then
+        CONTRACT_NAME="$INPUT_NAME"
+    elif [ "$RELATIVE_PATH" = "src/lib.rs" ]; then
+        CONTRACT_NAME=$(basename "$PROJECT_FOLDER")
+    elif [[ "$RELATIVE_PATH" == *"/"* ]]; then
         # For nested files like "examples/token/src/lib.rs", use "token"
         # or "smart-contract/src/lib.rs", use "smart-contract"
         FIRST_COMPONENT=$(echo "$RELATIVE_PATH" | cut -d'/' -f1)
@@ -235,8 +314,13 @@ while IFS= read -r TARGET_FILE; do
         continue
     fi
     
-    # Create contract-specific results folder in MAIN_RESULTS_DIR (root)
-    CONTRACT_RESULTS_DIR="$MAIN_RESULTS_DIR/$CONTRACT_NAME"
+    # Create results folder. Single-file mode already names MAIN_RESULTS_DIR after
+    # the contract, so avoid results/<contract>/<contract>/ duplication.
+    if [ "$SINGLE_FILE_MODE" = true ] || [ "$INPUT_NAME" = "$CONTRACT_NAME" ]; then
+        CONTRACT_RESULTS_DIR="$MAIN_RESULTS_DIR"
+    else
+        CONTRACT_RESULTS_DIR="$MAIN_RESULTS_DIR/$CONTRACT_NAME"
+    fi
     mkdir -p "$CONTRACT_RESULTS_DIR"
     
     BACKUP_FILE="${TARGET_FILE}.bak"
@@ -287,10 +371,25 @@ while IFS= read -r TARGET_FILE; do
         FILE_START_TIME=$(date +%s.%N)
         
         # Run kani and capture exit code properly (pipefail to catch kani errors)
-        set -o pipefail
-        kani "$TARGET_FILE" 2>&1 | tee "$CONTRACT_RESULTS_DIR/kani_output.txt"
-        EXIT_CODE=$?
-        set +o pipefail
+        if command -v kani >/dev/null 2>&1; then
+            set -o pipefail
+            kani "$TARGET_FILE" 2>&1 | tee "$CONTRACT_RESULTS_DIR/kani_output.txt"
+            EXIT_CODE=$?
+            set +o pipefail
+        else
+            write_missing_tool_log \
+                "$CONTRACT_RESULTS_DIR/kani_output.txt" \
+                "kani" \
+                "Kani formal verification" \
+                "Install Kani and make sure the 'kani' command is available in PATH. See: https://model-checking.github.io/kani/getting-started.html"
+            cat "$CONTRACT_RESULTS_DIR/kani_output.txt"
+            EXIT_CODE=127
+        fi
+        
+        write_assertion_checks \
+            "$CONTRACT_RESULTS_DIR/kani_output.txt" \
+            "$CONTRACT_RESULTS_DIR/assertion_checks.txt" \
+            "$CONTRACT_NAME"
         
         # Record end time for this file
         FILE_END_TIME=$(date +%s.%N)
@@ -416,6 +515,7 @@ while IFS= read -r TARGET_FILE; do
         echo "  • ${CONTRACT_NAME}_mod.txt - Modified with assert statements"
         echo "  • injection.log - Harness generation log"
         echo "  • kani_output.txt - Full Kani verification output"
+        echo "  • assertion_checks.txt - Failed REACHABLE assertion checks"
         echo "  • coverage_report/index.html - LLVM branch coverage report"
         echo "  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata"
         echo "  • SUMMARY.txt - This summary"
@@ -460,10 +560,20 @@ while IFS= read -r TARGET_FILE; do
         echo "⚠️  Cargo.toml not found in $PROJECT_FOLDER"
         echo "Initializing Cargo workspace..."
         cd "$PROJECT_FOLDER" || exit
-        set -o pipefail
-        cargo init --lib --quiet 2>&1 | tee "$CONTRACT_COVERAGE_DIR/cargo_init.log"
-        CARGO_INIT_EXIT_CODE=$?
-        set +o pipefail
+        if command -v cargo >/dev/null 2>&1; then
+            set -o pipefail
+            cargo init --lib --quiet 2>&1 | tee "$CONTRACT_COVERAGE_DIR/cargo_init.log"
+            CARGO_INIT_EXIT_CODE=$?
+            set +o pipefail
+        else
+            write_missing_tool_log \
+                "$CONTRACT_COVERAGE_DIR/cargo_init.log" \
+                "cargo" \
+                "Cargo workspace initialization" \
+                "Install Rust with rustup so Cargo is available. See: https://www.rust-lang.org/tools/install"
+            cat "$CONTRACT_COVERAGE_DIR/cargo_init.log"
+            CARGO_INIT_EXIT_CODE=127
+        fi
         if [ $CARGO_INIT_EXIT_CODE -eq 0 ]; then
             echo "✓ Cargo workspace initialized successfully"
         else
@@ -482,10 +592,20 @@ while IFS= read -r TARGET_FILE; do
     
     # Run cargo llvm-cov with branch coverage and HTML output
     # Using explicit pinned toolchain to prevent breaking changes from newer nightly versions
-    set -o pipefail
-    cargo +nightly-2026-03-10 llvm-cov --branch --html --output-dir "$CONTRACT_COVERAGE_DIR" 2>&1 | tee "$CONTRACT_COVERAGE_DIR/llvm_cov_output.log"
-    LLVM_EXIT_CODE=$?
-    set +o pipefail
+    if command -v cargo >/dev/null 2>&1; then
+        set -o pipefail
+        cargo +nightly-2026-03-10 llvm-cov --branch --html --output-dir "$CONTRACT_COVERAGE_DIR" 2>&1 | tee "$CONTRACT_COVERAGE_DIR/llvm_cov_output.log"
+        LLVM_EXIT_CODE=$?
+        set +o pipefail
+    else
+        write_missing_tool_log \
+            "$CONTRACT_COVERAGE_DIR/llvm_cov_output.log" \
+            "cargo" \
+            "LLVM branch/condition coverage generation" \
+            "Install Rust with rustup so Cargo is available, then install cargo-llvm-cov. See: https://github.com/taiki-e/cargo-llvm-cov"
+        cat "$CONTRACT_COVERAGE_DIR/llvm_cov_output.log"
+        LLVM_EXIT_CODE=127
+    fi
     
     LLVM_END_TIME=$(date +%s.%N)
     LLVM_EXECUTION_TIME=$(echo "scale=2; $LLVM_END_TIME - $LLVM_START_TIME" | bc)
@@ -542,7 +662,9 @@ while IFS= read -r TARGET_FILE; do
     [ -d ".llvm-cov" ] && rm -rf ".llvm-cov" 2>/dev/null
     
     # Clean incremental compilation artifacts that may have llvm instrumentation
-    cargo clean --release 2>/dev/null
+    if command -v cargo >/dev/null 2>&1; then
+        cargo clean --release 2>/dev/null
+    fi
     
     echo "LLVM cleanup complete"
     echo ""
@@ -583,9 +705,14 @@ echo "   Failed: $FAILED"
 echo "   Total Execution Time: ${TOTAL_EXECUTION_TIME} seconds"
 echo ""
 echo "Results Directory:"
-echo "   • Location: $MAIN_RESULTS_DIR/[contract_name]/"
-echo "   • Each contract folder contains:"
-echo "     └─ Coverage Report: results/[contract_name]/coverage_report/index.html"
+if [ "$SINGLE_FILE_MODE" = true ]; then
+    echo "   • Location: $MAIN_RESULTS_DIR/"
+    echo "   • Coverage Report: $MAIN_RESULTS_DIR/coverage_report/index.html"
+else
+    echo "   • Location: $MAIN_RESULTS_DIR/[contract_name]/"
+    echo "   • Each contract folder contains:"
+    echo "     └─ Coverage Report: results/[input_name]/[contract_name]/coverage_report/index.html"
+fi
 echo "============================================================"
 echo ""
 

@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'token_vesting_inline_probe'
+DEBUG: Generating standalone harness for function 'token_vesting_clamp'
+DEBUG: Generating standalone harness for function 'token_vesting_mode'
+DEBUG: Generating standalone harness for function 'token_vesting_action'
+DEBUG: Generating standalone harness for function 'token_vesting_score'
+DEBUG: Generating standalone harness for function 'token_vesting_walk'
+DEBUG: Generating standalone harness for function 'token_vesting_transition'
+62

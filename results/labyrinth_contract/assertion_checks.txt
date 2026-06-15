@@ -1,0 +1,88 @@
+═══════════════════════════════════════════════════════════════
+FAILED ASSERTION CHECKS: labyrinth_contract
+═══════════════════════════════════════════════════════════════
+
+SUMMARY:
+ ** 9 of 179 failed (79 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 222, in labyrinth_score
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 66, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+SUMMARY:
+ ** 15 of 116 failed (33 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 174, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 180, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 186, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 192, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 198, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 204, in transition
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 36, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 42, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+SUMMARY:
+ ** 1 of 33 failed (23 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 121, in reconcile_window
+
+SUMMARY:
+ ** 8 of 38 failed (20 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 54, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 60, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 66, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 72, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 78, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 84, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 90, in choose_route
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 96, in choose_route
+
+SUMMARY:
+ ** 2 of 4 failed (2 unreachable)
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 36, in clamp_i64
+Failed Checks: "REACHABLE_TRUE"
+ File: "/home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/labyrinth_contract.rs", line 42, in clamp_i64

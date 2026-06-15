@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: governance_vote_v15
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/governance_vote_v15.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Sun Jun 14 15:33:23 IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  31 (50%)
+  ✓ REACHABLE_FALSE: 31 (50%)
+  ✓ Total Asserts:   62
+
+Reachability Coverage:
+  Coverage Basis:    ESTIMATED (Kani did not produce reachability results)
+  ✓ TRUE paths:      31 / 31
+  ✓ FALSE paths:     0 / 31
+  ✓ Total Reachable: 31 / 62
+  → Condition Coverage: 50%
+
+Execution Time: .092582280 seconds
+
+Generated Files:
+  • governance_vote_v15_original.txt - Original source (backup)
+  • governance_vote_v15_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

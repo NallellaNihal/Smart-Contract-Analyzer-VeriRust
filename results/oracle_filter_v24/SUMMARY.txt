@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: oracle_filter_v24
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/oracle_filter_v24.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Sun Jun 14 15:33:38 IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  31 (50%)
+  ✓ REACHABLE_FALSE: 31 (50%)
+  ✓ Total Asserts:   62
+
+Reachability Coverage:
+  Coverage Basis:    ESTIMATED (Kani did not produce reachability results)
+  ✓ TRUE paths:      31 / 31
+  ✓ FALSE paths:     0 / 31
+  ✓ Total Reachable: 31 / 62
+  → Condition Coverage: 50%
+
+Execution Time: .096512560 seconds
+
+Generated Files:
+  • oracle_filter_v24_original.txt - Original source (backup)
+  • oracle_filter_v24_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

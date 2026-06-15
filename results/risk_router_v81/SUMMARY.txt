@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: risk_router_v81
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/risk_router_v81.rs
+Status: FAILED 
+Exit Code: 1
+Verification Date: Sun Jun 14 15:33:48 IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  29 (50%)
+  ✓ REACHABLE_FALSE: 29 (50%)
+  ✓ Total Asserts:   58
+
+Reachability Coverage:
+  Coverage Basis:    ESTIMATED (Kani did not produce reachability results)
+  ✓ TRUE paths:      29 / 29
+  ✓ FALSE paths:     14 / 29
+  ✓ Total Reachable: 43 / 58
+  → Condition Coverage: 74%
+
+Execution Time: .097120822 seconds
+
+Generated Files:
+  • risk_router_v81_original.txt - Original source (backup)
+  • risk_router_v81_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

@@ -1,0 +1,8 @@
+DEBUG: Generating standalone harness for function 'bridge_validator_inline_probe'
+DEBUG: Generating standalone harness for function 'bridge_validator_clamp'
+DEBUG: Generating standalone harness for function 'bridge_validator_mode'
+DEBUG: Generating standalone harness for function 'bridge_validator_action'
+DEBUG: Generating standalone harness for function 'bridge_validator_score'
+DEBUG: Generating standalone harness for function 'bridge_validator_walk'
+DEBUG: Generating standalone harness for function 'bridge_validator_transition'
+66

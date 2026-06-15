@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════
+VERIFICATION SUMMARY: balance_guard
+═══════════════════════════════════════════════════════════════
+Original File: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/passing_contracts/balance_guard/src/lib.rs
+Status: PASSED 
+Exit Code: 0
+Verification Date: Thu Jun  4 10:29:39 AM IST 2026
+
+Assert Statements Injected:
+  ✓ REACHABLE_TRUE:  2 (50%)
+  ✓ REACHABLE_FALSE: 2 (50%)
+  ✓ Total Asserts:   4
+
+Reachability Coverage:
+  Coverage Basis:    KANI
+  ✓ TRUE paths:      0 / 2
+  ✓ FALSE paths:     0 / 2
+  ✓ Total Reachable: 0 / 4
+  → Condition Coverage: 0%
+
+Execution Time: .641358355 seconds
+
+Generated Files:
+  • balance_guard_original.txt - Original source (backup)
+  • balance_guard_mod.txt - Modified with assert statements
+  • injection.log - Harness generation log
+  • kani_output.txt - Full Kani verification output
+  • assertion_checks.txt - Failed REACHABLE assertion checks
+  • coverage_report/index.html - LLVM branch coverage report
+  • coverage_report/LLVM_COVERAGE_SUMMARY.txt - Coverage metadata
+  • SUMMARY.txt - This summary

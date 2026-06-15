@@ -1,0 +1,21 @@
+═══════════════════════════════════════════════════════════════
+CARGO LLVM-COV COVERAGE REPORT - nft_marketplace_v68
+═══════════════════════════════════════════════════════════════
+Contract: nft_marketplace_v68
+Analysis Date: Sun Jun 14 15:33:35 IST 2026
+Project Folder: /home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust
+Analysis Type: Branch/Condition Coverage
+Status: FAILED/PARTIAL
+Exit Code: 101
+Execution Time: .026272095 seconds
+
+Generated Artifacts:
+  • index.html - Interactive HTML coverage report
+  • llvm_cov_output.log - Full cargo llvm-cov output
+  • LLVM_COVERAGE_SUMMARY.txt - This summary
+
+Coverage Report Details:
+  └─ Report Type: Branch and Condition Coverage
+  └─ Format: HTML (standalone)
+  └─ Open in browser: file:///home/nihal/Downloads/Smart-Contract-Analyzer-VeriRust/results/nft_marketplace_v68/coverage_report/index.html
+
